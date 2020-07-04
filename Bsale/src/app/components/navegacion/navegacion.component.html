@@ -1,34 +1,57 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" routerLink="/">TIENDA BSALE</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <!--Movi el nav a la derecha-->
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="barra">
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" name= "buscar" [(ngModel)]="buscar" type="search" placeholder="Buscar Producto" aria-label="Search">
-            <button class="btn btn-default" type="submit" (click)="buscarProducto()"><i class="fas fa-search"></i></button>
+            <input
+              class="form-control mr-sm-2"
+              name="buscar"
+              [(ngModel)]="buscar"
+              type="search"
+              (search)="borrarSearch()"
+              placeholder="Buscar Producto"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-default"
+              type="submit"
+              (click)="buscarProducto()"
+            >
+              <i class="fas fa-search"></i>
+            </button>
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  (click)=borrarSeach() routerLink="/carroDeCompra" routerLinkActive="active"><i
-              class="fas fa-shopping-cart"></i></a>
+          <a
+            class="nav-link"
+            
+            routerLink="/carroDeCompra"
+            
+            ><i class="fas fa-shopping-cart"></i
+          ></a>
         </li>
       </ul>
     </div>
   </div>
-</nav>
+</nav><!-- 
 <div class="container p-4">
-
-  <div *ngIf="search!=''; else elseBlock"><app-productos [search]="search">
-  </app-productos></div>
+  <div *ngIf="search != ''; else elseBlock">
+    <app-productos [search]="search"> </app-productos>
+  </div>
   <ng-template #elseBlock><router-outlet></router-outlet></ng-template>
 </div>
-
-
-
-
+ -->

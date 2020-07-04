@@ -5,17 +5,17 @@ import {CarroComponent} from './components/carro/carro.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/productos',
-    pathMatch: 'full'
+    path: "productos",
+    component: ProductosComponent,
   },
   {
-    path: 'productos',
-    component:  ProductosComponent
+    path: "carroDeCompra",
+    component: CarroComponent,
   },
   {
-    path: 'carroDeCompra',
-    component:  CarroComponent
+    path: "",
+    redirectTo: "/productos",
+    pathMatch: "full",
   },
 ];
 

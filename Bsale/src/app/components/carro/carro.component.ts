@@ -1,4 +1,4 @@
-import { Component, OnInit,OnChanges, SimpleChanges} from '@angular/core';
+import { Component, OnInit,OnChanges, SimpleChanges, OnDestroy} from '@angular/core';
 import { ProductoService } from './../../services/producto.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -7,7 +7,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './carro.component.html',
   styleUrls: ['./carro.component.css']
 })
-export class CarroComponent implements OnInit {
+export class CarroComponent implements OnInit,OnDestroy {
 
   carros: any = [];
   total: number = 0;
@@ -15,7 +15,9 @@ export class CarroComponent implements OnInit {
   
   constructor(private productoService: ProductoService,private router: Router, private activedRoute: ActivatedRoute) { }
 
-
+  ngOnDestroy(){
+    debugger;
+  }
   ngOnInit() {
     this.carros = JSON.parse(localStorage.getItem("carro"));
     this.carros.forEach(element => {
