@@ -7,20 +7,26 @@ import { ProductoService } from './../../services/producto.service';
   styleUrls: ['./navegacion.component.css']
 })
 export class NavegacionComponent implements OnInit {
-
-buscar: string = '';
+  idMarket = '1';
+  idColeccion = '2';
+  buscar: string = '';
+  search: string = '';
 
   constructor(private productoService: ProductoService) { }
 
   ngOnInit() {
   }
 
-  buscarProducto(){
-    this.productoService.getProductos('1','2',this.buscar).subscribe(
+  buscarProducto() {
+    this.search = this.buscar;
+    this.productoService.getProductos(this.idMarket, this.idColeccion, this.buscar).subscribe(
       res => {
 
       },
-      err=> console.log(err)
+      err => console.log(err)
     );
+  }
+  borrarSearch(){
+    this.search='';
   }
 }

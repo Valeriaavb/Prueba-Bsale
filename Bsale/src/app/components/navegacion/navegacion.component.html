@@ -15,10 +15,20 @@
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/carroDeCompra" routerLinkActive="active"><i
+          <a class="nav-link"  (click)=borrarSeach() routerLink="/carroDeCompra" routerLinkActive="active"><i
               class="fas fa-shopping-cart"></i></a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="container p-4">
+
+  <div *ngIf="search!=''; else elseBlock"><app-productos [search]="search">
+  </app-productos></div>
+  <ng-template #elseBlock><router-outlet></router-outlet></ng-template>
+</div>
+
+
+
+
