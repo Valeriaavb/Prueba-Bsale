@@ -8,8 +8,8 @@ import { ProductoService } from './../../services/producto.service';
 })
 export class ProductosComponent implements OnInit {
   productos: any = [];
-  listCarro: any = [];
-  //cantidad: number = 0;
+  public listCarro: any = [];
+  imagenNoEncontrada: string = "https://www.cuestalibros.com/content/images/thumbs/default-image_550.png";
   constructor(private productoService: ProductoService) { }
 
   ngOnInit() {
@@ -28,7 +28,8 @@ export class ProductosComponent implements OnInit {
   }
 
 
-  agregarAlCarro(producto: any){
+  agregarAlCarro(producto: any) {
+    localStorage.removeItem('carro');
     let carro: any = {
       quantity: 0,
       unitValue: 0,
@@ -43,13 +44,9 @@ export class ProductosComponent implements OnInit {
     carro.img = producto.urlImg;
     carro.nombre = producto.name;
     this.listCarro.push(carro);
-   /* this.productoService.postCarro(carro).subscribe(
-      resp => {
-      },
-      err => console.error(err)
-    );*/
     console.log(this.listCarro)
-    localStorage.setItem('carro', this.listCarro);
+
+    localStorage.setItem('carro', JSON.stringify(this.listCarro));
   }
 
 

@@ -1,21 +1,24 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" routerLink="/">TIENDA BSALE</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto"> <!--Movi el nav a la derecha-->
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/recetas" routerLinkActive="active"><i class="fas fa-utensils"></i>Recetas</a>
+      <ul class="navbar-nav ml-auto">
+        <!--Movi el nav a la derecha-->
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name= "buscar" [(ngModel)]="buscar" type="search" placeholder="Buscar Producto" aria-label="Search">
+            <button class="btn btn-default" type="submit" (click)="buscarProducto()"><i class="fas fa-search"></i></button>
+          </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/receta/agregar" routerLinkActive="active"><i class="fas fa-plus-circle"></i>Agregar Recetas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/ingredientes" routerLinkActive="active"><i class="fas fa-shopping-cart"></i></a>
+          <a class="nav-link" routerLink="/carroDeCompra" routerLinkActive="active"><i
+              class="fas fa-shopping-cart"></i></a>
         </li>
       </ul>
     </div>
   </div>
-  </nav>
+</nav>

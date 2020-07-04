@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductoService } from './../../services/producto.service';
 
 @Component({
   selector: 'app-navegacion',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavegacionComponent implements OnInit {
 
-  constructor() { }
+buscar: string = '';
+
+  constructor(private productoService: ProductoService) { }
 
   ngOnInit() {
   }
 
+  buscarProducto(){
+    this.productoService.getProductos('1','2',this.buscar).subscribe(
+      res => {
+
+      },
+      err=> console.log(err)
+    );
+  }
 }
