@@ -11,7 +11,7 @@ export class ProductosComponent implements OnInit{
   idMarket = "1";
   idColeccion = "2";
   public listCarro: any = [];
-  // @Input() search;
+
 
   imagenNoEncontrada: string =
     "https://www.cuestalibros.com/content/images/thumbs/default-image_550.png";
@@ -47,7 +47,6 @@ export class ProductosComponent implements OnInit{
   }
 
   agregarAlCarro(producto: any) {
-    //const OBJETO_2 = JSON.parse(localStorage.getItem("carro"));
     localStorage.removeItem("carro");
     let carro: any = {
       quantity: 0,

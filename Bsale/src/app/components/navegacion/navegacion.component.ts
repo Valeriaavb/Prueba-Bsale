@@ -19,14 +19,7 @@ export class NavegacionComponent implements OnInit {
   ngOnInit() {}
 
   buscarProducto() {
-    //this.search = this.buscar;
     this.emisor.emit(this.buscar);
-  /*   this.productoService
-      .getProductos(this.idMarket, this.idColeccion, this.buscar)
-      .subscribe(
-        (res) => {},
-        (err) => console.log(err)
-      ); */
   }
   borrarSearch(idea?) {
     this.buscar = "";
