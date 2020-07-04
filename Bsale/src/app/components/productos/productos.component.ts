@@ -6,7 +6,7 @@ import { ProductoService } from "./../../services/producto.service";
   templateUrl: "./productos.component.html",
   styleUrls: ["./productos.component.css"],
 })
-export class ProductosComponent implements OnInit, OnChanges ,OnDestroy{
+export class ProductosComponent implements OnInit{
   productos: any = [];
   idMarket = "1";
   idColeccion = "2";
@@ -18,17 +18,12 @@ export class ProductosComponent implements OnInit, OnChanges ,OnDestroy{
   constructor(private productoService: ProductoService) {}
   emisor(algo) {
     this.getProducto(algo);
-    debugger;
+  
   }
   ngOnInit() {
     this.getProducto();
   }
-  ngOnChanges() {
-    debugger;
-  }
-  ngOnDestroy(){
-    debugger;
-  }
+
   getProducto(search?) {
     if (search) {
       this.productoService
@@ -61,15 +56,12 @@ export class ProductosComponent implements OnInit, OnChanges ,OnDestroy{
       img: "",
       nombre: "",
     };
-
     carro.quantity = producto.cantidad;
     carro.unitValue = producto.variant.finalPrice;
     carro.idVarianteProducto = producto.variant.id;
     carro.img = producto.urlImg;
     carro.nombre = producto.name;
     this.listCarro.push(carro);
-
-    debugger;
     localStorage.setItem("carro", JSON.stringify(this.listCarro));
   }
 }

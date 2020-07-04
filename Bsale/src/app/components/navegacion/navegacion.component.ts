@@ -6,7 +6,7 @@ import { ProductoService } from "./../../services/producto.service";
   templateUrl: "./navegacion.component.html",
   styleUrls: ["./navegacion.component.css"],
 })
-export class NavegacionComponent implements OnInit,OnDestroy {
+export class NavegacionComponent implements OnInit {
   idMarket = "1";
   idColeccion = "2";
   buscar: string = "";
@@ -29,11 +29,8 @@ export class NavegacionComponent implements OnInit,OnDestroy {
       ); */
   }
   borrarSearch(idea?) {
-    debugger;
     this.buscar = "";
     !idea? this.emisor.emit(this.buscar):"";
   }
-  ngOnDestroy(){
-    debugger;
-  }
+
 }

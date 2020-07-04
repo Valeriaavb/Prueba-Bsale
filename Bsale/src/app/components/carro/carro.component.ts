@@ -7,7 +7,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './carro.component.html',
   styleUrls: ['./carro.component.css']
 })
-export class CarroComponent implements OnInit,OnDestroy {
+export class CarroComponent implements OnInit {
 
   carros: any = [];
   total: number = 0;
@@ -15,9 +15,6 @@ export class CarroComponent implements OnInit,OnDestroy {
   
   constructor(private productoService: ProductoService,private router: Router, private activedRoute: ActivatedRoute) { }
 
-  ngOnDestroy(){
-    debugger;
-  }
   ngOnInit() {
     this.carros = JSON.parse(localStorage.getItem("carro"));
     this.carros.forEach(element => {
@@ -40,7 +37,6 @@ export class CarroComponent implements OnInit,OnDestroy {
 
   enviarCarro() {
     this.carroEnviar.cartDetails= this.carros; 
-    debugger;
     this.productoService.postCarro(this.carroEnviar).subscribe(
       resp => {
         this.router.navigate(['/productos']);
